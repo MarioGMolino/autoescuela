@@ -17,3 +17,14 @@
 #         for record in self:
 #             record.value2 = float(record.value) / 100
 
+from odoo import models, fields, api
+
+class Autoescuela(models.Model):
+    _name = 'Autoescuela'
+    _description = "Modelo general de la autoescuela"
+    name = fields.Char(string = 'Nombre', required = True)
+    domicilio = fields.Char(string = 'Domicilio')
+    localidad = fields.Char(string ='Localidad')
+    provincia = fields.Char(string = 'Provincia')
+    examen_ids = models.ManyToManyField()
+    
