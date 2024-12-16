@@ -26,5 +26,9 @@ class Autoescuela(models.Model):
     domicilio = fields.Char(string = 'Domicilio')
     localidad = fields.Char(string ='Localidad')
     provincia = fields.Char(string = 'Provincia')
-    examen_ids = models.ManyToManyField()
+    examen_ids = fields.Many2many('autoescuela.autoescuela', string='Examenes')
+    profesor_ids = fields.One2Many('autoescuela.autoescuela','autoescuela_id', string='Profesor')
+    alumno_ids = fields.One2Many('autoescuela.autoescuela', 'autoescuela_id', string='Alumno')
+    contacto = fields.Char(string = 'Contacto')
+    
     
